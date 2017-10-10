@@ -75,12 +75,34 @@ TypoScript Reference
          string
 
    Description
-         Set this to the ISO code of your default language (L=0)
+         Set this to the ISO code of your default language (L=0).
 
          ::
 
             plugin.tx_rlmplanguagedetection_pi1 {
                defaultLang = de
+            }
+
+
+   Default
+         (empty)
+
+.. container:: table-row
+
+   Property
+         fallbackLang
+
+   Data type
+         string
+
+   Description
+         Set this to the ISO code of your fallback language.  If set, this language is
+         used when none of the available languages is accepted by the user.
+
+         ::
+
+            plugin.tx_rlmplanguagedetection_pi1 {
+               fallbackLang = en
             }
 
 

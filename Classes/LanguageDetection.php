@@ -222,7 +222,7 @@ class LanguageDetection extends AbstractPlugin {
 									break 2;
 								}
 							}
-						}
+                        }
 					}
 					break;
 				//GeoIP
@@ -308,6 +308,11 @@ class LanguageDetection extends AbstractPlugin {
 					break;
 			}
 		}
+
+        if(  isset( $this->conf['fallbackLang'] ) && $preferredLanguageOrPageUid === FALSE) {
+            $preferredLanguageOrPageUid = $availableLanguagesArr[$this->conf['fallbackLang']];
+            GeneralUtility::devLog('None of the languages available is accepted by the User. Fallback to '.$this->conf['fallbackLang'], $this->extKey);
+        }
 
 		if (TYPO3_DLOG) {
 			GeneralUtility::devLog('END result: Preferred=' . $preferredLanguageOrPageUid, $this->extKey);
